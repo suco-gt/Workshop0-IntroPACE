@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{graphicx,subfiles,amsmath,amsfonts,bookmark}
+\usepackage{hyperref}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\title{Workshop 0: Intro to GT PACE}
+\author{Supercomputing@GT}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{What is PACE?}
+
+\textbf{PACE} stands for the \textbf{Partnership for an Advanced Computing Environment}. PACE provides leading-edge high-performance computing resources for Georgia Tech faculty, students, and staff that require them. PACE offers:
+
+\begin{itemize}
+    \item CPU/GPU Compute Capacity
+    \item Individual \& Shared Project Storage
+    \item Classroom \& Teaching Resources 
+    \item Various software support 
+    \item User Support \& No-Cost Consultation Sessions 
+    \item Monthly Trainings, Workshops, \& Other Learning Events 
+    \item User Documentation \& Video Recordings 
+\end{itemize}
+
+\noindent PACE maintains 5 different compute clusters. They are respectively called:
+
+\begin{itemize}
+    \item \textbf{Phoenix}: Research cluster open to GT/GTRI faculty. 
+    \item \textbf{ICE}: Educational cluster for courses teaching HPC concepts. 
+    \item \textbf{Firebird}: Research cluster for Controlled Unclassified Information, International Traffic in Arms Regulations (ITAR), and export controlled data.
+    \item \textbf{Buzzard}: High throughput pool connected to OSG's OSPool; designed for researchers with many small independent jobs
+    \item \textbf{Hive}: Research cluster only available to recipients of the NSF MRI award \#1828187 and their collaborators.
+\end{itemize}
+
+\noindent As you can see, it is likely that most of you will interact mostly with the ICE cluster throughout your GT career. However, the skills we teach in this workshop will carry over to the other clusters since all PACE clusters use the same underlying job scheduling technology, Slurm. 
+
+\subsection{References}
+
+For more information on PACE, please visit the following pages:
+\begin{itemize}
+    \item \url{https://pace.gatech.edu/participation/}
+    \item \url{https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503}
+\end{itemize}
+
+\section{Getting Started with PACE}
+
+\subsection{Accessing the PACE Cluster}
+
+\subsection{Obtaining Interactive Compute Nodes}
+
+\subsection{Hands-On Practice}
+
+\section{A Brief Intro to Slurm and Slurm Jobs}
+
+Up till now, you've actually already been working with Slurm to obtain interactive compute nodes! However, you may notice that there is a problem. Your computer needs to be kept open to ensure that you remain connected to the compute node, because your interactive job will terminate as soon as your session is disconnected. This does not seem very practical if we are trying to train a very large neural network model or perform multi-day climate simulations. This is where \textbf{Slurm Jobs} come to the rescue. 
+
+\subsection{But what is Slurm?}
+
+\subsection{An Aside on the Necessity of Slurm}
+
+\subsection{How to use Slurm Jobs}
+
+\subsection{Hands-On Practice}
+
+We ran out of time in the workshop to allow for some practice submitting Slurm jobs. However, we believe that you now have all the knowledge that is necessary for you to learn how to submit a Slurm job for running the programs that we have given you today! If you are a participant, you will have 1 more week's access to ICE-PACE, so make sure to take this opportunity to practice your newly obtained skills!
+
+\subsection{References}
+
+For more information on the usage of Slurm on PACE, Slurm itself, and job scheduling in general, you can visit the following pages:
+
+\begin{itemize}
+    \item \url{https://docs.pace.gatech.edu/training/img/Phoenix%20Slurm%20Orientation%20v5.pdf}
+    \item \url{https://gatech.service-now.com/technology?id=kb_article_view&sysparm_article=KB0042503}
+    \item \url{https://slurm.schedmd.com/documentation.html}
+    \item \url{https://en.wikipedia.org/wiki/Job_scheduler}
+    \item \url{https://en.wikipedia.org/wiki/Distributed_computing}
+\end{itemize}
+
+\end{document}
