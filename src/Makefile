@@ -48,11 +48,11 @@ medium: MATRIX_SIZE = 2048
 medium: $(TARGET)
 	$(RUN)
 
-large: MATRIX_SIZE = 16384
+large: MATRIX_SIZE = 4096
 large: $(TARGET)
 	$(RUN)
 
-extralarge: MATRIX_SIZE = 65536
+extralarge: MATRIX_SIZE = 8192
 extralarge: $(TARGET)
 	$(RUN)
 

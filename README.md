@@ -40,8 +40,8 @@ Compile and run predefined sized matrices
 ```
 make small NP=<num processes> // 512x512
 make medium NP=<num processes> // 2048x2048
-make large NP=<num processes> // 16384x16384
-make extralarge NP=<num processes> // 65536x65536
+make large NP=<num processes> // 4096x4096
+make extralarge NP=<num processes> // 8192x8192
 ```
 
 ## Running on the Supercomputer
