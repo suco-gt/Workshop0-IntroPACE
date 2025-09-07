@@ -15,32 +15,46 @@ OUTPUT_FILE = matrix_calculation.txt
 MPI_LAUNCH ?= mpirun
 MPI_OPTS ?= -np $(NP)
 
+ifeq ($(MPI_LAUNCH),srun)
+  MPI_OPTS ?=
+else
+  MPI_OPTS ?= -np $(NP)
+endif
+
 # Default target
-all: $(TARGET)
+all: clean $(TARGET)
 
 # Build executable
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
+define RUN
+@if [ "$(MPI_LAUNCH)" = "srun" ]; then \
+	$(MPI_LAUNCH) ./$(TARGET) $(MATRIX_SIZE); \
+else \
+	$(MPI_LAUNCH) -np $(NP) ./$(TARGET) $(MATRIX_SIZE); \
+fi
+endef
+
 # Run rules
 run: $(TARGET)
-	$(MPI_LAUNCH) $(MPI_OPTS) ./$(TARGET) $(MATRIX_SIZE)
+	$(RUN)
 
 small: MATRIX_SIZE = 512
 small: $(TARGET)
-	$(MPI_LAUNCH) $(MPI_OPTS) ./$(TARGET) $(MATRIX_SIZE)
+	$(RUN)
 
 medium: MATRIX_SIZE = 2048
 medium: $(TARGET)
-	$(MPI_LAUNCH) $(MPI_OPTS) ./$(TARGET) $(MATRIX_SIZE)
+	$(RUN)
 
 large: MATRIX_SIZE = 16384
 large: $(TARGET)
-	$(MPI_LAUNCH) $(MPI_OPTS) ./$(TARGET) $(MATRIX_SIZE)
+	$(RUN)
 
 extralarge: MATRIX_SIZE = 65536
 extralarge: $(TARGET)
-	$(MPI_LAUNCH) $(MPI_OPTS) ./$(TARGET) $(MATRIX_SIZE)
+	$(RUN)
 
 # Clean up
 clean:
