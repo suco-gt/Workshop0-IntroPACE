@@ -1,6 +1,6 @@
 # Workshop 0: Intro to GT PACE
 
-> Hi everyone! Welcome to Supercomputing@GT's first workshop of the semester, Intro to GT PACE! We are sure that you are to learn all that you need to know about navigating GT's supercomputing cluster!
+> Hi everyone! Welcome to Supercomputing@GT's first workshop of the semester, Intro to GT PACE! We are sure that you will learn all that you need to know about navigating GT's supercomputing cluster!
 
 ## What is Supercomputing@GT?
 
@@ -8,7 +8,7 @@ As one of the nation's most well-renowned research universities in high-performa
 
 ## Today's Content
 
-This workshop will primarily focus on what GT's supercomputing cluster is and how to navigate the system. Specifically, we will introduce you to using the Georgia Tech PACE Instructional Cluster (ICE-PACE). This repository contains all the files that are necessary for you to access throughout the workshop. All the files that will be used for hands-on practice with ICE-PACE is in the `/src` directory. A written version of the workshop material is in the `/doc` directory. Finally, the slides are the `Workshop 0.pdf` file.
+This workshop will primarily focus on what GT's supercomputing cluster is and how to navigate the system. Specifically, we will introduce you to using the Georgia Tech PACE Instructional Cluster (ICE-PACE). This repository contains all the files that are necessary for you to access throughout the workshop. All the files that will be used for hands-on practice with ICE-PACE is in the `/src` directory. A written version of the workshop material is in the `docs/main.pdf` file. Finally, the slides are in the `Workshop 0.pdf` file.
 
 Now let us get the show on the road! :confetti_ball:
 ## Installing MPI

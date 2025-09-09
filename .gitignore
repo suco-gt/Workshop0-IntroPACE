@@ -57,3 +57,13 @@ dkms.conf
 matmul
 matrix_calculation.txt
 .vscode/
+
+# Latex compilation files
+*/*.toc
+*/*.synctex.gz 
+*/*.aux 
+*/*.dvi 
+*/*.fdb_latexmk 
+*/*.fls
+*/*.log 
+*/*.out.ps
