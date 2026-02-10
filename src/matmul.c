@@ -235,8 +235,8 @@ int main(int argc, char* argv[]) {
 
     // Local matrix multiplication
     for (int i = 0; i < rows_per_process; i++) {
-        for (int j = 0; j < N; j++) {
-            for (int k = 0; k < N; k++) {
+        for (int k = 0; k < N; k++) {
+            for (int j = 0; j < N; j++) {
                 local_C[i * N + j] += local_A[i * N + k] * B[k * N + j];
             }
         }
