@@ -25,35 +25,121 @@ brew install open-mpi // mac
 
 ## Compiling and Running Locally
 
-Creates executable (matmul) that you can run however you like
+These commands are for running the program **on your own computer**.
+
+### Compile the program
+
+This creates an executable called `matmul`.
+
+```bash
+make
 ```
-make 
+
+You can then run the executable using `mpirun`:
+
+```bash
 mpirun -n <num processes> ./matmul <matrix_size>
 ```
-To compile and run in one go
 
-NP defaults to 1, and MATRIX_SIZE defaults to 4 times NP
+For example:
+
+```bash
+mpirun -n 4 ./matmul 512
 ```
-make run NP=<num processes> MATRIX_SIZE=<matrix_size> 
+
+This runs the program with 4 MPI processes on a 512 × 512 matrix.
+
+### Compile and run in one command
+
+You can also compile and run the program in one command.
+
+* `NP` specifies the number of MPI processes.
+* `MATRIX_SIZE` specifies the size of the matrix.
+* If `NP` is not provided, it defaults to 1.
+* If `MATRIX_SIZE` is not provided, it defaults to 4 × `NP`.
+
+```bash
+make run NP=<num processes> MATRIX_SIZE=<matrix_size>
 ```
-Compile and run predefined sized matrices
+
+For example:
+
+```bash
+make run NP=4 MATRIX_SIZE=512
 ```
-make small NP=<num processes> // 512x512
-make medium NP=<num processes> // 2048x2048
-make large NP=<num processes> // 4096x4096
-make extralarge NP=<num processes> // 8192x8192
+
+### Compile and run predefined matrix sizes
+
+You can use the following commands to run predefined matrix sizes:
+
+```bash
+make small NP=<num processes>       # 512 × 512
+make medium NP=<num processes>      # 2048 × 2048
+make large NP=<num processes>       # 4096 × 4096
+make extralarge NP=<num processes> # 8192 × 8192
 ```
+
+For example:
+
+```bash
+make medium NP=4
+```
+
+---
 
 ## Running on the Supercomputer
 
-If you compiled manually do
-```
+These commands are for running the program **on the PACE supercomputer**.
+
+> **Important:** When running on the supercomputer, do **not** specify `NP`. The number of processes is automatically determined by the resources allocated to you.
+
+### If you already compiled the program
+
+If you have already created the `matmul` executable using `make`, you can run it with `srun`:
+
+```bash
 srun ./matmul <matrix_size>
 ```
-To compile and run, do not set NP, it is inferred from the supercomputer environment you are in.
-set MPI_LAUNCH="srun"
+
+For example:
+
+```bash
+srun ./matmul 512
 ```
+
+### Compile and run in one command
+
+You can also compile and run the program in one command.
+
+When running on the supercomputer, set `MPI_LAUNCH` to `srun`:
+
+```bash
 make run MPI_LAUNCH="srun" MATRIX_SIZE=<matrix_size>
-make small MPI_LAUNCH="srun"
-make medium ...
 ```
+
+For example:
+
+```bash
+make run MPI_LAUNCH="srun" MATRIX_SIZE=512
+```
+
+**Do not include `NP` in this command.** The number of processes is inferred from the supercomputer environment.
+
+### Compile and run predefined matrix sizes
+
+You can also use the predefined matrix sizes:
+
+```bash
+make small MPI_LAUNCH="srun"       # 512 × 512
+make medium MPI_LAUNCH="srun"      # 2048 × 2048
+make large MPI_LAUNCH="srun"       # 4096 × 4096
+make extralarge MPI_LAUNCH="srun"  # 8192 × 8192
+```
+
+For example:
+
+```bash
+make medium MPI_LAUNCH="srun"
+```
+
+**Remember:** Do not specify `NP` when running on the supercomputer.
