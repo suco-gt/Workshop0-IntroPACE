@@ -19,8 +19,7 @@ mpirun --version
 ```
 If not installed run
 ```
-sudo apt install mpich // linux
-brew install open-mpi // mac
+module load openmpi
 ```
 
 ## Compiling and Running Locally
